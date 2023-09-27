@@ -1,0 +1,46 @@
+<button class="btn mb-3" onclick="my_modal_3.showModal()">Create new Article</button>
+<dialog id="my_modal_3" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+
+      <div class="flex flex-col">
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text">Headline:</span>
+          </label>
+          <input type="text" placeholder="Type here" class="input input-bordered w-full"
+                 id="headline" name="headline" [(ngModel)]="article.headline"/>
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text">Body:</span>
+          </label>
+          <textarea class="textarea textarea-bordered h-24"
+                    id="body" name="body" [(ngModel)]="article.body"></textarea>
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text">Image URL:</span>
+          </label>
+          <input type="text" placeholder="Type here" class="input input-bordered w-full"
+                 id="articleImgUrl" name="articleImgUrl" [(ngModel)]="article.articleImgUrl"/>
+        </div>
+
+        <div class="form-control w-full mb-3">
+          <label class="label">
+            <span class="label-text">Author:</span>
+          </label>
+          <input type="text" placeholder="Type here" class="input input-bordered w-full"
+                 id="author" name="author" [(ngModel)]="article.author"/>
+        </div>
+
+        <button class="btn btn-success" type="submit" (click)="onCreateArticle()">Create New</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+

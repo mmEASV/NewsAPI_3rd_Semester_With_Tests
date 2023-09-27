@@ -1,0 +1,17 @@
+<create-article/>
+
+<div class="flex flex-wrap justify-around gap-3">
+  <div *ngFor="let article of articleService.articles">
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <figure style="max-height: 216px"><img src="{{article.articleImgUrl}}" alt="Shoes" /></figure>
+      <div class="card-body">
+        <h2 class="card-title">{{article.headline}}</h2>
+        <p>{{article.body}}</p>
+        <div class="card-actions justify-end hidden">
+          <button class="btn btn-primary">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

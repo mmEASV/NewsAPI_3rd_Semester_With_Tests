@@ -1,21 +1,27 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ArticleService} from "../ArticleService";
 
 @Component({
   selector: 'app-article-display',
-  template: `
-    <p-dataView [value]="articleService.articles">
-      <ng-template let-article pTemplate="listItem">
-        <div class="col-12">
-          <p>IDK what im doing</p>
-        </div>
-      </ng-template>
-    </p-dataView>
-    `,
+  templateUrl: `./article-display.component.html`,
   styleUrls: ['./article-display.component.css']
 })
-export class ArticleDisplayComponent {
-  constructor(public articleService: ArticleService) {
-    articleService.getArticles().then(r => console.log(r));
+export class ArticleDisplayComponent implements OnInit{
+  articles: any;
+
+  ngOnInit(){
+    this.getArticles();
   }
+
+  getArticles(){
+    this.articleService.getArticles().then(r => {
+      this.articles = r;
+
+      console.log(this.articles);
+    });
+  }
+
+  constructor(public articleService: ArticleService) { }
+
+  protected readonly ArticleService = ArticleService;
 }
